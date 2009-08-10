@@ -1,12 +1,12 @@
 ; released 2009-08-10
 (load "util" "html")
 (comment
-  Copyright: (c) 2009 Liron Greenstein
+  "Copyright: (c) 2009 Liron Greenstein
   This program is free software. It comes without any warranty, to
   the extent permitted by applicable law. You can redistribute it
   and/or modify it under the terms of the Do What The Fuck You Want
   To Public License, Version 2, as published by Sam Hocevar. See
-  COPYING.txt for more details.)
+  COPYING.txt for more details.")
 
 (declare ensure-srvdirs handle-request handle-request-1 abusive-ip 
 handle-request-thread log-request handle-post static-filetype 
