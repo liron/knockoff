@@ -29,16 +29,7 @@ then at the repl:
 
 serve takes an optional port number.
 
-To see it working, point your browser to localhost:8080
-
-To run the arc challenge without seeing stuff get passed in the URL: this is annoying:
-
-open up srv.clj and re-evaluate the definition of aform, AND the (defop said ...), in the repl.
-For some reason clojure does namespace resolution the first time it compiles everything, but not
-when it re-evaluates it.  This means 'post becomes 'user/post and the browser doesn't know what to
-do with method=user/post.  man.
-
-anyway, now you can point your browser to localhost:8080/said
+To see it working, point your browser to localhost:8080 or localhost:8080/said
 
 also there's arc examples out there you can copy.
 
