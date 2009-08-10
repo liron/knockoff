@@ -52,8 +52,8 @@
 (attribute input      type           opsym)
 (attribute input      value          opesc)
 (attribute input      checked        opcheck)
-(attribute form       action         opsym)
-(attribute form       method         opstring)
+(attribute form       action         opstring)
+(attribute form       method         opsym) ; be easier if this was an opstring
 
 (defn literal [x]
   (cond (symbol? x) false
