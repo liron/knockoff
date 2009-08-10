@@ -198,7 +198,7 @@ Connection: close"))
 (defs unknown-msg* "Unknown." max-age* (atom {}) static-max-age* (atom nil))
 
 (defn respond [strn op args cooks ip]
-;  (let [strn *out*]
+
   (w-stdout strn
     (iflet f (@srvops* op)
 	   (let [req (inst 'request 'args args 'cooks cooks 'ip ip)]
@@ -220,7 +220,7 @@ Connection: close"))
 		     (whilet b (readb i)
 		       (writeb b strn))))
 	       (respond-err strn unknown-msg*))))))
-;					)
+
 
 (defn static-filetype [symb]
   (let [fname (str symb)]
@@ -363,7 +363,7 @@ Connection: close"))
   (str rfnurl* "?fnid=" (fnid f)))
 
 (defmacro w-link [expr & body]
-  `(tag (~'a ~'href (flink (fn [~(gensym)] ~expr))) ; tag and a
+  `(tag (~'a ~'href (flink (fn [~(gensym)] ~expr)))
      ~@body))
 
 (defmacro w-rlink [expr & body]
@@ -396,7 +396,7 @@ Connection: close"))
 		      (bodyfn))))
 
 (defmacro aform [f & body]
-  `(tag (~'form ~'method 'post ~'action fnurl*)
+  `(tag (~'form ~'method '~(sym "post") ~'action fnurl*)
      (fnid-field (fnid (fn [ga#]
 			 (prln)
 			 (~f ga#))))
@@ -405,28 +405,28 @@ Connection: close"))
 (defmacro taform [lasts f & body]
   `(let [gl# ~lasts
 	 gf# (fn [ga#] (prln) (~f ga#))]
-     (tag (~'form ~'method 'post ~'action fnurl*)
+     (tag (~'form ~'method '~(sym "post") ~'action fnurl*)
        (fnid-field (if gl# (timed-fnid gl# gf#) (fnid gf#)))
        ~@body)))
 
 (defmacro arform [f & body]
-  `(tag (~'form ~'method 'post ~'action rfnurl*)
+  `(tag (~'form ~'method '~(sym "post") ~'action rfnurl*)
      (fnid-field (fnid ~f))
      ~@body))
 
 (defmacro tarform [lasts f & body]
   `(let [gl# ~lasts gf# ~f]
-     (tag (~'form ~'method 'post ~'action rfnurl*)
+     (tag (~'form ~'method '~(sym "post") ~'action rfnurl*)
        (fnid-field (if gl# (timed-fnid gl# gf#) (fnid gf#)))
        ~@body)))
 
 (defmacro aformh [f & body]
-  `(tag (~'form ~'method 'post ~'action fnurl*)
+  `(tag (~'form ~'method '~(sym "post") ~'action fnurl*)
      (fnid-field (fnid ~f))
      ~@body))
 
 (defmacro arformh [f & body]
-  `(tag (~'form ~'method 'post ~'action rfnurl2*)
+  `(tag (~'form ~'method '~(sym "post") ~'action rfnurl2*)
      (fnid-field (fnid ~f))
      ~@body))
 
