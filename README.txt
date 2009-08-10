@@ -13,8 +13,11 @@ also github made me pick a name, so i went with "knockoff", but call it whatever
 besides it should be j-encoded like a real clojure software project: "kjnocjkofjf"
 
 to run it:
-get clojure (from github, perhaps)
-get clojure-contrib (also on github)
+
+First open up srv.clj and change parent* to the checkout directory.
+
+Also get clojure (from github, perhaps)
+and get clojure-contrib (also on github)
 
 put those things and this directory on your classpath; maybe by firing up java like:
 
