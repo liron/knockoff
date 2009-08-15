@@ -14,7 +14,7 @@ respond respond-err parseheader parseurl parseargs parsecookies
 harvest-fnids srvlog )
 
 (defs 
-  parent* "/Users/liron/clj"
+  parent* "/Users/liron/knockoff"
   cljdir* (str parent* "/clj/")
   logdir* (str parent* "/clj/logs/")
   staticdir* (str parent* "/static/")
